@@ -1,0 +1,3 @@
+[submodule "subs/CoreCocos2d"]
+	path = subs/CoreCocos2d
+	url = https://github.com/Rofl113/CoreCocos2d.git
