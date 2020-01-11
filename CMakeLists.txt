@@ -14,6 +14,10 @@ add_executable(${BUILD_CONFIG}
     StateMachineNote.cpp
     CoreAppDelegateCocosNodePlusPlus.h
     CoreAppDelegateCocosNodePlusPlus.cpp
+    # Scenes
+    Scenes/ISceneMain.h
+    Scenes/SceneMain.h
+    Scenes/SceneMain.cpp
 )
 
 add_subdirectory(subs)
