@@ -14,9 +14,8 @@
 namespace
 {
 
-enum Error
+enum class ErrorApp
 {
-	NONE = 0,
 	BAD_INIT = -1
 };
 
@@ -26,16 +25,15 @@ enum Error
 int main(const int argc, const char* argv[])
 {
 	Core core (std::unique_ptr<ICoreAppDelegate>(new CoreAppDelegateCocosNodePlusPlus()));
-	const bool status = core.initialize(argc, argv);
-	if (status)
+	/// Initialize
 	{
-		// Запуск
-		return core.run();
+		const bool status = core.initialize(argc, argv);
+		if (not status)
+		{
+			// Error Initialize
+			return static_cast<int>(ErrorApp::BAD_INIT);
+		}
 	}
-	else
-	{
-		// Error Initialize
-		return BAD_INIT;
-	}
-	return NONE;
+	// Запуск
+	return core.run();
 }
