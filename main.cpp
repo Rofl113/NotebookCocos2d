@@ -29,8 +29,8 @@ int main(const int argc, const char* argv[])
 	const bool status = core.initialize(argc, argv);
 	if (status)
 	{
-		// TODO: добавить выход по ошибке
-		core.run();
+		// Запуск
+		return core.run();
 	}
 	else
 	{
