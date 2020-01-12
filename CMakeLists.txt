@@ -23,3 +23,5 @@ add_executable(${BUILD_CONFIG}
 add_subdirectory(subs)
 
 target_link_libraries(${BUILD_CONFIG} CoreCocos2d_LIB)
+
+target_link_libraries(${BUILD_CONFIG} ${NLOHMANN_JSON_TARGET_NAME})

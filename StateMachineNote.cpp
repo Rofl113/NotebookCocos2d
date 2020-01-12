@@ -1,7 +1,8 @@
 #include "StateMachineNote.h"
+#include <cassert>
 // Core lib
 #include <Core/Core.h>
-#include <Core/IRender.h>
+#include <Core/IManagerScene.h>
 
 
 
@@ -22,9 +23,11 @@ PtrMachineAction StateMachineNote::handleEnter()
 	auto action = ClassBase::handleEnter();
 	// Get Scene
 	m_scene = nullptr;
-	if (const auto render = m_core.getRender())
+	if (const auto manager = m_core.getManagerScene())
 	{
-		m_scene = render->loadScene("Main");
+		m_scene = manager->loadScene("Main");
+		const bool result = manager->push(m_scene);
+		assert(result);
 	}
 	return action;
 }

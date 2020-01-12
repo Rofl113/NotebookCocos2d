@@ -18,6 +18,7 @@ SceneMain::~SceneMain()
 
 void SceneMain::onLoad()
 {
+	ClassBase::onLoad();
 	if (not m_bg)
 	{
 		// Create
@@ -36,20 +37,20 @@ void SceneMain::onLoad()
 
 void SceneMain::onActivate()
 {
-
+	ClassBase::onActivate();
 }
 
 void SceneMain::onDeactivate()
 {
-
+	ClassBase::onDeactivate();
 }
 
 void SceneMain::onPause()
 {
-
+	ClassBase::onPause();
 }
 
 void SceneMain::onResume()
 {
-
+	ClassBase::onResume();
 }

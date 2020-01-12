@@ -1,3 +1,4 @@
 cmake_minimum_required(VERSION 3.6) # Проверка версии CMake.
 
 add_subdirectory(CoreCocos2d)
+add_subdirectory(json)
