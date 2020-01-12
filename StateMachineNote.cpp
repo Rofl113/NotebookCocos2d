@@ -22,7 +22,6 @@ PtrMachineAction StateMachineNote::handleEnter()
 	// TODO: как обрабатывать ответ от базового класса?
 	auto action = ClassBase::handleEnter();
 	// Get Scene
-	m_scene = nullptr;
 	if (const auto manager = m_core.getManagerScene())
 	{
 		m_scene = manager->loadScene("Main");
@@ -41,6 +40,14 @@ PtrMachineAction StateMachineNote::handleExit()
 {
 	// TODO: как обрабатывать ответ от базового класса?
 	auto action = ClassBase::handleExit();
-
+	if (m_scene)
+	{
+		if (const auto manager = m_core.getManagerScene())
+		{
+			const bool result = manager->pop(m_scene);
+			assert(result);
+		}
+		m_scene = nullptr;
+	}
 	return action;
 }
