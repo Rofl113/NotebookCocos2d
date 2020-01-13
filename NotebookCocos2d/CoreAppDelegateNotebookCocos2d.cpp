@@ -19,8 +19,9 @@ std::unique_ptr<SessionApp> CoreAppDelegateNotebookCocos2d::createSessionApp(con
 {
 	auto sessionApp = ClassBase::createSessionApp(argc, argv);
 	// TODO: fake
-	sessionApp->setName("CocosNodePlusPlus");
+	sessionApp->setName("NotebookCocos2d");
 	sessionApp->setSize({ 500, 500 });
+	sessionApp->setResizable(true);
 	return sessionApp;
 }
 
