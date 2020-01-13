@@ -1,7 +1,8 @@
 #include "SceneMain.h"
 // Cocos2d lib
-#include <cocos/2d/CCLayer.h>
 #include <cocos/2d/CCScene.h>
+#include <cocos/2d/CCLayer.h>
+#include <cocos/2d/CCLabel.h>
 
 
 
@@ -19,18 +20,21 @@ SceneMain::~SceneMain()
 void SceneMain::onLoad()
 {
 	ClassBase::onLoad();
-	if (not m_bg)
+	if (not m_label)
 	{
 		// Create
-		m_bg = PtrCocos2d<cocos2d::LayerColor>::create();
-		assert(m_bg);
+		m_label = PtrCocos2d<cocos2d::Label>::create();
+		assert(m_label);
 		// Setting
-		m_bg->setContentSize(cocos2d::Size(500, 500));
-		m_bg->setColor(cocos2d::Color3B::RED);
+		m_label->setPosition({ 250, 250 });
+		m_label->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
+		m_label->setContentSize({ 200, 100 });
+		m_label->setString("TEXT");
+		m_label->setTextColor(cocos2d::Color4B::WHITE);
 		// Add Child
 		if (auto sceneCocos = this->getSceneCocos())
 		{
-			sceneCocos->addChild(m_bg.get());
+			sceneCocos->addChild(m_label.get());
 		}
 	}
 }

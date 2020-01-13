@@ -5,7 +5,7 @@
 #include "ISceneMain.h"
 
 
-namespace cocos2d { class LayerColor; }
+namespace cocos2d { class Label; }
 
 
 class SceneMain : public SceneCocos2d, public ISceneMain
@@ -24,5 +24,5 @@ public: /// SceneCocos2d
 	virtual void onResume() override;
 
 private:
-	PtrCocos2d<cocos2d::LayerColor> m_bg;
+	PtrCocos2d<cocos2d::Label> m_label;
 };
