@@ -1,13 +1,6 @@
 #include <iostream>
-// Sm lib
-#include <StateMachine/ManagerMessages.h> ///< TODO: надо разобраться по чему без этого не собирается!
 // Core lib
 #include <Core/Core.h>
-#include <Core/SessionApp.h> ///< TODO: надо разобраться по чему без этого не собирается!
-#include <Core/IFactoryScene.h> ///< TODO: надо разобраться по чему без этого не собирается!
-#include <Core/IManagerDescriptionScene.h> ///< TODO: надо разобраться по чему без этого не собирается!
-#include <Core/IRender.h> ///< TODO: надо разобраться по чему без этого не собирается!
-#include <Core/IManagerScene.h> ///< TODO: надо разобраться по чему без этого не собирается!
 // Main
 #include "NotebookCocos2d/CoreAppDelegateNotebookCocos2d.h"
 
