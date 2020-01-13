@@ -1,4 +1,4 @@
-#include "StateMachineNote.h"
+#include "StateMachineNotebookCocos2d.h"
 #include <cassert>
 // Core lib
 #include <Core/Core.h>
@@ -6,18 +6,18 @@
 
 
 
-StateMachineNote::~StateMachineNote()
+StateMachineNotebookCocos2d::~StateMachineNotebookCocos2d()
 {
 
 }
 
-StateMachineNote::StateMachineNote(Core& core)
+StateMachineNotebookCocos2d::StateMachineNotebookCocos2d(Core& core)
     : m_core(core)
 {
 
 }
 
-PtrMachineAction StateMachineNote::handleEnter()
+PtrMachineAction StateMachineNotebookCocos2d::handleEnter()
 {
 	// TODO: как обрабатывать ответ от базового класса?
 	auto action = ClassBase::handleEnter();
@@ -31,12 +31,12 @@ PtrMachineAction StateMachineNote::handleEnter()
 	return action;
 }
 
-PtrMachineAction StateMachineNote::handleMessage(const MachineMessage& message)
+PtrMachineAction StateMachineNotebookCocos2d::handleMessage(const MachineMessage& message)
 {
 	return ClassBase::handleMessage(message);
 }
 
-PtrMachineAction StateMachineNote::handleExit()
+PtrMachineAction StateMachineNotebookCocos2d::handleExit()
 {
 	// TODO: как обрабатывать ответ от базового класса?
 	auto action = ClassBase::handleExit();

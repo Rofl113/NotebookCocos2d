@@ -6,13 +6,13 @@ class Core;
 class IScene;
 
 
-class StateMachineNote : public StateMachineBase
+class StateMachineNotebookCocos2d : public StateMachineBase
 {
 	using ClassBase = StateMachineBase;
-	StateMachineNote() = delete;
+	StateMachineNotebookCocos2d() = delete;
 public:
-	virtual ~StateMachineNote() override;
-	StateMachineNote(Core& core);
+	virtual ~StateMachineNotebookCocos2d() override;
+	StateMachineNotebookCocos2d(Core& core);
 
 private:
 	virtual PtrMachineAction handleEnter() override;

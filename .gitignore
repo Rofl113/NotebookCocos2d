@@ -1,1 +1,2 @@
-CMakeLists.txt.user*
+CMakeList\s.txt.user*
+release/*

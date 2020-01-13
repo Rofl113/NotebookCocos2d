@@ -9,7 +9,7 @@
 #include <Core/IRender.h> ///< TODO: надо разобраться по чему без этого не собирается!
 #include <Core/IManagerScene.h> ///< TODO: надо разобраться по чему без этого не собирается!
 // Main
-#include "CoreAppDelegateCocosNodePlusPlus.h"
+#include "NotebookCocos2d/CoreAppDelegateNotebookCocos2d.h"
 
 namespace
 {
@@ -24,7 +24,7 @@ enum class ErrorApp
 
 int main(const int argc, const char* argv[])
 {
-	Core core (std::unique_ptr<ICoreAppDelegate>(new CoreAppDelegateCocosNodePlusPlus()));
+	Core core (std::unique_ptr<ICoreAppDelegate>(new CoreAppDelegateNotebookCocos2d()));
 	/// Initialize
 	{
 		const bool status = core.initialize(argc, argv);

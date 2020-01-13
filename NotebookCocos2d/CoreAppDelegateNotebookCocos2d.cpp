@@ -1,4 +1,4 @@
-#include "CoreAppDelegateCocosNodePlusPlus.h"
+#include "CoreAppDelegateNotebookCocos2d.h"
 // Core lib
 #include <Core/SessionApp.h>
 #include <Core/IManagerDescriptionScene.h>
@@ -6,16 +6,16 @@
 #include <CoreCocos2d/FactorySceneCocos2d.h>
 #include <CoreCocos2d/DescriptionSceneCocos2d.h>
 // Json lib
-#include "subs/json/single_include/nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 // Main
-#include "StateMachineNote.h"
+#include "StateMachineNotebookCocos2d.h"
 #include "Scenes/SceneMain.h"
 
 
 
 
 
-std::unique_ptr<SessionApp> CoreAppDelegateCocosNodePlusPlus::createSessionApp(const int argc, const char* argv[])
+std::unique_ptr<SessionApp> CoreAppDelegateNotebookCocos2d::createSessionApp(const int argc, const char* argv[])
 {
 	auto sessionApp = ClassBase::createSessionApp(argc, argv);
 	// TODO: fake
@@ -24,7 +24,7 @@ std::unique_ptr<SessionApp> CoreAppDelegateCocosNodePlusPlus::createSessionApp(c
 	return sessionApp;
 }
 
-std::unique_ptr<IManagerDescriptionScene> CoreAppDelegateCocosNodePlusPlus::createManagerDescriptionScene(const SessionApp& sessionApp)
+std::unique_ptr<IManagerDescriptionScene> CoreAppDelegateNotebookCocos2d::createManagerDescriptionScene(const SessionApp& sessionApp)
 {
 	auto managerDescriptionScene = ClassBase::createManagerDescriptionScene(sessionApp);
 	// TODO: fake
@@ -32,7 +32,7 @@ std::unique_ptr<IManagerDescriptionScene> CoreAppDelegateCocosNodePlusPlus::crea
 	return managerDescriptionScene;
 }
 
-std::unique_ptr<IFactoryScene> CoreAppDelegateCocosNodePlusPlus::createFactoryScene(const SessionApp& sessionApp)
+std::unique_ptr<IFactoryScene> CoreAppDelegateNotebookCocos2d::createFactoryScene(const SessionApp& sessionApp)
 {
 	auto factoryScene = ClassBase::createFactoryScene(sessionApp);
 	if (auto factorySceneCocos2d = dynamic_cast<FactorySceneCocos2d*>(factoryScene.get()))
@@ -42,7 +42,7 @@ std::unique_ptr<IFactoryScene> CoreAppDelegateCocosNodePlusPlus::createFactorySc
 	return factoryScene;
 }
 
-std::unique_ptr<StateMachineBase> CoreAppDelegateCocosNodePlusPlus::createStateMachine(Core& core)
+std::unique_ptr<StateMachineBase> CoreAppDelegateNotebookCocos2d::createStateMachine(Core& core)
 {
-	return std::unique_ptr<StateMachineBase>(new StateMachineNote(core));
+	return std::unique_ptr<StateMachineBase>(new StateMachineNotebookCocos2d(core));
 }

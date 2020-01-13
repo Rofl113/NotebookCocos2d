@@ -3,7 +3,7 @@
 #include <CoreCocos2d/CoreAppDelegateCocos2d.h>
 
 
-class CoreAppDelegateCocosNodePlusPlus : public CoreAppDelegateCocos2d
+class CoreAppDelegateNotebookCocos2d : public CoreAppDelegateCocos2d
 {
 	using ClassBase = CoreAppDelegateCocos2d;
 public:
