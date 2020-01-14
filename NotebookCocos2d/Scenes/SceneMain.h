@@ -22,7 +22,4 @@ public: /// SceneCocos2d
 	virtual void onDeactivate() override;
 	virtual void onPause() override;
 	virtual void onResume() override;
-
-private:
-	PtrCocos2d<cocos2d::Label> m_label;
 };

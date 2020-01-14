@@ -3,6 +3,8 @@
 #include <cocos/2d/CCScene.h>
 #include <cocos/2d/CCLayer.h>
 #include <cocos/2d/CCLabel.h>
+#include <cocos/ui/UIText.h>
+#include <cocos/ui/UIListView.h>
 
 
 
@@ -20,23 +22,26 @@ SceneMain::~SceneMain()
 void SceneMain::onLoad()
 {
 	ClassBase::onLoad();
-	if (not m_label)
+	// Create
+	auto bg = PtrCocos2d<cocos2d::LayerColor>::create(cocos2d::Color4B::BLUE, 200, 500);
+	auto listView = PtrCocos2d<cocos2d::ui::ListView>::create();
 	{
-		// Create
-		m_label = PtrCocos2d<cocos2d::Label>::create();
-		assert(m_label);
 		// Setting
-		m_label->setPosition({ 250, 250 });
-		m_label->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE);
-		m_label->setContentSize({ 200, 100 });
-		m_label->setString("TEXT");
-		m_label->setTextColor(cocos2d::Color4B::WHITE);
-		// Add Child
-		if (auto sceneCocos = this->getSceneCocos())
+		listView->setPosition({ 0, 0 });
+		listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
+		listView->setContentSize({ 200, 500 });
+		for (size_t i = 0; i < 100; ++i)
 		{
-			sceneCocos->addChild(m_label.get());
+			auto label = cocos2d::ui::Text::create();
+			label->setTextColor(cocos2d::Color4B::BLACK);
+			label->setString("TEST # " + std::to_string(i));
+			listView->pushBackCustomItem(label);
 		}
 	}
+	// Add Child
+	auto sceneCocos = this->getSceneCocos();
+	sceneCocos->addChild(bg.get());
+	sceneCocos->addChild(listView.get());
 }
 
 void SceneMain::onActivate()
