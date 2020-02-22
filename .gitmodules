@@ -4,3 +4,12 @@
 [submodule "subs/json"]
 	path = subs/json
 	url = https://github.com/nlohmann/json.git
+[submodule "subs/StateMachine"]
+	path = subs/StateMachine
+	url = https://github.com/Rofl113/StateMachineForward.git
+[submodule "subs/Core"]
+	path = subs/Core
+	url = https://github.com/Rofl113/Core.git
+[submodule "subs/Cocos2d"]
+	path = subs/Cocos2d
+	url = https://github.com/Rofl113/Cocos2dLib.git
