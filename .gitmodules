@@ -13,3 +13,6 @@
 [submodule "subs/Cocos2d"]
 	path = subs/Cocos2d
 	url = https://github.com/Rofl113/Cocos2dLib.git
+[submodule "subs/ConvertPlistToJson"]
+	path = subs/ConvertPlistToJson
+	url = https://github.com/Rofl113/ConvertPlistToJson.git

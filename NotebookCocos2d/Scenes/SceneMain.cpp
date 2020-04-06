@@ -5,6 +5,9 @@
 #include <cocos/2d/CCLabel.h>
 #include <cocos/ui/UIText.h>
 #include <cocos/ui/UIListView.h>
+#include <cocos/ui/UIButton.h>
+
+#include <QtCore/QtCore>
 
 
 
@@ -23,25 +26,19 @@ void SceneMain::onLoad()
 {
 	ClassBase::onLoad();
 	// Create
-	auto bg = PtrCocos2d<cocos2d::LayerColor>::create(cocos2d::Color4B::BLUE, 200, 500);
-	auto listView = PtrCocos2d<cocos2d::ui::ListView>::create();
+	auto bg = PtrCocos2d<cocos2d::LayerColor>::create(cocos2d::Color4B::BLUE, 500, 500);
+	//
+	auto btn = cocos2d::ui::Button::create();
 	{
-		// Setting
-		listView->setPosition({ 0, 0 });
-		listView->setAnchorPoint(cocos2d::Vec2::ANCHOR_BOTTOM_LEFT);
-		listView->setContentSize({ 200, 500 });
-		for (size_t i = 0; i < 100; ++i)
-		{
-			auto label = cocos2d::ui::Text::create();
-			label->setTextColor(cocos2d::Color4B::BLACK);
-			label->setString("TEST # " + std::to_string(i));
-			listView->pushBackCustomItem(label);
-		}
+		btn->setContentSize(cocos2d::Size(200, 50));
+		btn->setPositionX(250);
+		btn->setPositionY(250);
+		btn->setTitleText("TEST");
 	}
 	// Add Child
 	auto sceneCocos = this->getSceneCocos();
 	sceneCocos->addChild(bg.get());
-	sceneCocos->addChild(listView.get());
+	sceneCocos->addChild(btn);
 }
 
 void SceneMain::onActivate()

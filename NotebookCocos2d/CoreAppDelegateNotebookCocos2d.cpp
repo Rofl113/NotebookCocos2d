@@ -5,6 +5,10 @@
 // CoreCocos2d lib
 #include <CoreCocos2d/FactorySceneCocos2d.h>
 #include <CoreCocos2d/DescriptionSceneCocos2d.h>
+#include <CoreCocos2d/RenderCocos2d.h>
+// Cocos2dxViaQt lib
+#include <Cocos2dxViaQt/GLViewQt.h>
+#include <Cocos2dxViaQt/QtWidgetCocos2d.h>
 // Json lib
 #include <nlohmann/json.hpp>
 // Main
@@ -14,6 +18,12 @@
 
 
 
+
+CoreAppDelegateNotebookCocos2d::CoreAppDelegateNotebookCocos2d(QtWidgetCocos2d* viewQt)
+    : m_viewQt(viewQt)
+{
+
+}
 
 std::unique_ptr<SessionApp> CoreAppDelegateNotebookCocos2d::createSessionApp(const int argc, const char* argv[])
 {
@@ -41,6 +51,13 @@ std::unique_ptr<IFactoryScene> CoreAppDelegateNotebookCocos2d::createFactoryScen
 		factorySceneCocos2d->registerScene<SceneMain>("SceneMain");
 	}
 	return factoryScene;
+}
+
+std::unique_ptr<IRender> CoreAppDelegateNotebookCocos2d::createRender(const SessionApp& sessionApp, const IFactoryScene& factoryScene, const IManagerDescriptionScene& managerDescriptionScene)
+{
+	PtrCocos2d<cocos2d::GLView> glView (GLViewQt::create(sessionApp.getName(), m_viewQt));
+	assert(glView);
+	return std::unique_ptr<IRender>(new RenderCocos2d(std::move(glView), factoryScene, managerDescriptionScene));
 }
 
 std::unique_ptr<StateMachineBase> CoreAppDelegateNotebookCocos2d::createStateMachine(Core& core)
